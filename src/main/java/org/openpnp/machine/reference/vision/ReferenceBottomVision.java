@@ -19,7 +19,6 @@ import org.openpnp.model.Length;
 import org.openpnp.model.LengthUnit;
 import org.openpnp.model.Location;
 import org.openpnp.model.Part;
-import org.openpnp.gui.MainFrame;
 import org.openpnp.spi.Camera;
 import org.openpnp.spi.Nozzle;
 import org.openpnp.spi.PartAlignment;
@@ -29,14 +28,13 @@ import org.openpnp.util.OpenCvUtils;
 import org.openpnp.util.Utils2D;
 import org.openpnp.util.VisionUtils;
 import org.openpnp.vision.pipeline.CvPipeline;
-import org.openpnp.vision.pipeline.stages.Rotate;
 import org.openpnp.vision.pipeline.CvStage.Result;
+import org.openpnp.vision.pipeline.stages.Rotate;
 import org.pmw.tinylog.Logger;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Root;
-import org.simpleframework.xml.core.Commit;
 
 public class ReferenceBottomVision implements PartAlignment {
 
@@ -54,13 +52,6 @@ public class ReferenceBottomVision implements PartAlignment {
     @ElementMap(required = false)
     protected Map<String, PartSettings> partSettingsByPartId = new HashMap<>();
     
-    @Commit
-    public void commit() {
-        // TODO Temporarily disabled due to bugs, see: https://github.com/openpnp/openpnp/issues/401
-        preRotate = false;
-    }
-
-
     @Override
     public PartAlignmentOffset findOffsets(Part part, BoardLocation boardLocation,
             Location placementLocation, Nozzle nozzle) throws Exception {

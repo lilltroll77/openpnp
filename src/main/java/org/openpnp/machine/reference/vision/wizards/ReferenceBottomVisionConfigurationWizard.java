@@ -103,7 +103,6 @@ public class ReferenceBottomVisionConfigurationWizard extends AbstractConfigurat
         panel.add(lblPreRot, "2, 6");
 
         preRotCheckbox = new JCheckBox("");
-        preRotCheckbox.setEnabled(false);
         panel.add(preRotCheckbox, "4, 6");
         
         JLabel lblcurrentlyInDevelopment = new JLabel("(Currently in development)");
